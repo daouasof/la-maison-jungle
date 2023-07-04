@@ -18,36 +18,13 @@ function CareScale({ scaleValue, careType }) {
 
 
 function handleClick (scaleValue, careType) {
-  let attribute = "";
-  let type = "";
-  switch ( scaleValue ) {
-    case 1 :
-      attribute = "peu";
-      break;
-    case 2:
-      attribute = "modérement";
-      break;
-    case 3:
-      attribute = "beaucoup";
-      break;
-    default:
-      attribute = "no match";
-      break;
-    }
+  const attribute = {
+    1: 'peu',
+    2: 'modérément',
+    3: 'beaucoup'
+  };
 
-    switch ( careType ) {
-      case 'light' :
-        type = "de lumière";
-        break;
-      case 'water' :
-        type = "d'arrosage";
-        break;
-      default:
-        attribute = "no match";
-        break;
-  }
-
-  alert(`Cette plante requiert ${attribute} ${type}`);
+  alert(`Cette plante requiert ${attribute[scaleValue]} ${careType === 'light' ? 'de lumière' : "d'arrosage"}`);
 }
 
 export default CareScale

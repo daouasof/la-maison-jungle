@@ -22,7 +22,8 @@ function ShoppingList() {
             key={ plant.id }
             name={plant.name}
             light={plant.light}
-            water={plant.water} />
+            water={plant.water}
+            cover={plant.cover} />
         ))}
       </ul>
     </div>
