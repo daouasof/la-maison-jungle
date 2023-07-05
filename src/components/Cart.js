@@ -1,9 +1,8 @@
-import '../styles/Cart.css'
-import { useState } from 'react'
+import '../styles/Cart.css';
+import { useState } from 'react';
 
 function Cart({cart, updateCart}) {
-  console.log('cart = ', cart);
-	const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(true)
   const total = cart.reduce(
     (acc, plantType) => acc = acc + plantType.price * plantType.quantity,
     0)
@@ -23,7 +22,7 @@ function Cart({cart, updateCart}) {
         </div>
       ))}
       <h3>Total : {total}€</h3>
-      <button onClick={()=>updateCart(0)}>Vider le panier</button>
+      <button onClick={()=>updateCart([])}>Vider le panier</button>
 		</div>
 	) : (
 		<div className='lmj-cart-closed'>
@@ -36,5 +35,6 @@ function Cart({cart, updateCart}) {
 		</div>
 	)
 }
+
 
 export default Cart;

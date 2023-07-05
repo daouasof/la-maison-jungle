@@ -1,14 +1,19 @@
 import Banner from './Banner';
 import Cart from './Cart';
-import ShoppingList from './ShoppingList';
-import logo from '../assets/logo.png';
+import Categories from './Categories';
 import Footer from './Footer';
+import ShoppingList from './ShoppingList';
+
+import logo from '../assets/logo.png';
+
 import '../styles/Layout.css'
+
 import { useState } from 'react'
 
 
 function App() {
-	const [cart, updateCart] = useState([])
+	const [cart, updateCart] = useState([]);
+  const [filterCategory, updateFilterCategory] = useState("");
 
   return <div>
       <Banner>
@@ -17,7 +22,10 @@ function App() {
 			</Banner>
 			<div className='lmj-layout-inner'>
 				<Cart cart={cart} updateCart={updateCart}/>
-				<ShoppingList cart={cart} updateCart={updateCart}/>
+				<div>
+          <Categories filterCategory={filterCategory} updateFilterCategory={updateFilterCategory} />
+          <ShoppingList cart={cart} updateCart={updateCart} filterCategory={filterCategory}/>
+        </div>
 			</div>
 			<Footer />
     </div>

@@ -1,13 +1,10 @@
 import { plantList } from "../datas/plantList"
 import '../styles/ShoppingList.css'
 import PlantItem from "./PlantItem"
+import Categories from "./Categories";
 
-function ShoppingList({cart, updateCart}) {
-  const categories = plantList.reduce(
-    (acc, plant) =>
-      acc.includes(plant.category) ? acc : acc.concat(plant.category),
-      new Array()
-    )
+function ShoppingList({cart, updateCart, filterCategory}) {
+
 
   function addToCart(name, price) {
     const currentPlantAdded = cart.find((plant) => plant.name === name);
@@ -18,19 +15,17 @@ function ShoppingList({cart, updateCart}) {
         { name, price, quantity: currentPlantAdded.quantity + 1 }
       ])
     } else {
-      updateCart([...cart, {name, price, quantity: 1}])
+      updateCart([...cart, {name: name, price: price, quantity: 1}])
     }
   }
 
+  const plantListDisplayed = filterCategory === "" ? plantList : plantList.filter((plant)=> plant.category == filterCategory);
+
 	return (
 		<div>
-      <ul>
-        {categories.map((cat) => (
-          <li key={cat}>{cat}</li>
-        ))}
-      </ul>
+      <p>Filtercategory : {filterCategory}</p>
       <ul className='lmj-plant-list'>
-        {plantList.map((plant) => (
+        {plantListDisplayed.map((plant) => (
           <div key={plant.id}>
             <PlantItem
               key={ plant.id }
