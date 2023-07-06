@@ -5,6 +5,7 @@
   border-bottom: solid 3px black;
   display: flex;
   justify-content: flex-end;
+  flex-direction: row;
   align-items: center;
 }
 
