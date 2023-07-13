@@ -32,3 +32,16 @@
 .lmj-cart-closed > button {
 	color: black;
 }
+
+.lmj-cart-empty-button{
+  background: none;
+	outline: none;
+	border: none;
+  border-top: solid 1px white;
+	font-weight: 600;
+	cursor: pointer;
+	padding: 0;
+  padding-top: 10px;
+  margin-top: 10px;
+	color: white;
+}
