@@ -7,5 +7,24 @@
 }
 
 .lmj-shopping-list {
-	width: 100%;
+  width: 100%;
+}
+
+.lmj-plat-card {
+  display:grid;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add-button {
+  background-color: white;
+	border: solid 1px #31b472;
+	font-weight: 600;
+	cursor: pointer;
+  color: #31b472;
+  padding: 5px 15px;
+  border-radius: 5px;
+  box-sizing: content-box;
+  justify-self: center;
+  margin: 0px 10px 10px 10px;
 }
